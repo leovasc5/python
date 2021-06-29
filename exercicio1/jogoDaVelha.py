@@ -2,7 +2,7 @@ import os
 import random
 from colorama import Fore, Back, Style
 
-jogarNovamente = ""
+jogarNovamente = "s"
 jogadas = 0
 quemJoga = 2 #1 = CPU | #2 = Jogador
 maxJogadas = 9
@@ -108,9 +108,21 @@ def verificarVitoria():
 
         #verifica diagonal e-d
         soma = 0
+        idiag = 0
+
+        while idiag <3:
+            if(matriz[idiag][idiag] == s):
+                soma+=1
+            idiag += 1
+        if(soma == 3):
+            vitoria = s
+            break
+
+        #verifica diagonal d-e
+        soma = 0
         idiagl = 0
         idiagc = 2
-        while idiagc < 3:
+        while idiagc >= 0:
             if(matriz[idiagl][idiagc] == s):
                 soma+=1
             idiagl += 1
@@ -121,8 +133,34 @@ def verificarVitoria():
     return vitoria
         #verifica diagonal d-e
 
-        
-while True:
-    tela()
-    jogadorJoga()
-    cpuJoga()
+def redefinir():
+    global matriz
+    global jogadas
+    global quemJoga
+    global maxJogadas
+    global vencedor
+    jogadas = 0
+    quemJoga = 2 #1 = CPU | #2 = Jogador
+    maxJogadas = 9
+    vencedor = ""
+    matriz = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "]]
+
+
+while(jogarNovamente == "s"):
+    while True:
+        tela()
+        jogadorJoga()
+        cpuJoga()
+        vencedor = verificarVitoria()
+        if(vencedor != "n") or (jogadas >= maxJogadas):
+            break
+
+    print(Fore.RED + "Fim de Jogo" + Fore.YELLOW)
+    if vencedor == "X":
+        print("Resultado: Você venceu!")
+    elif vencedor == "O":
+        print("A CPU venceu")
+    else:
+        print("Resultado: Empate")
+    jogarNovamente = input(Fore.BLUE + "Digite [s] para continuar ou [n] para sair: " + Fore.RESET)
+    redefinir()
