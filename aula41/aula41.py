@@ -15,7 +15,7 @@ print(alunosDF.loc[0:3]) #retorna as linhas de acordo com o filtro desejado
 
 print(alunosDF.loc[alunosDF['Nome'] == 'Ricardo']) #Retorna as linhas de acordo com o filtro desejado
 
-aprovados = alunosDF.loc[alunosDF['Nota'] > 6]
+aprovados = alunosDF.loc[alunosDF['Nota'] >= 6]
 print(aprovados)
 
 print("-------------------------")
