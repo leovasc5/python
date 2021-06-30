@@ -1,13 +1,12 @@
 import pandas as pd
 
-alunosDIC = {
-    "Nome": ['Ricardo', 'Pedro', 'Roberto', 'Carlos', 'Ricardo'],
-    "Nota": [4, 7, 9, 9.7, 5],
-    "Aprovado":['Não', 'Sim', 'Sim', 'Sim', 'Não']
-}
+df = pd.read_csv('C:/Users/l5/python/aula38/planilha2.csv')
 
-alunosDF = pd.DataFrame(alunosDIC)
+df.columns = ['Liga','temporada','posicao','time','partidas','vitorias','empates','derrotas','gols pro','gols contra','pontos',
+ 'xG','xG_diff','npxG','xGA','xGA_diff','npxGA','npxGD','ppda_coef','oppda_coef','deep','deep_allowed','xpts','xpts_diff'] #renomeei as colunas
 
-aprovados = alunosDF.loc[alunosDF['Nota'] >= 6]
+#pd.set_option('max_columns', 24) -> Configura quantas colunas aparecerão no terminal
 
-novoDF = 
+tabelas_barcelona = df.loc[df['time'] == "Barcelona"] #Separei as temporadas do Barcelona
+barcelona2014 = tabelas_barcelona.loc[tabelas_barcelona['temporada'] == 2014 ] #Separei pela temporada que queria
+print(barcelona2014.head())
