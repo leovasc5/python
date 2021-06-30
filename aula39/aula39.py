@@ -21,5 +21,4 @@ matriz = [
 
 objeto2 = pd.Series(matriz)
 print(objeto2)
-
 #Transformou a matriz em dataframe
