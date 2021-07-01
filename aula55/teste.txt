@@ -1,0 +1,3 @@
+Olá, eu sou um arquivo .txt
+Ola mundo
+Testando
