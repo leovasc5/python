@@ -1,4 +1,6 @@
-import conexao
+# import banco/
+import os
+os.system("python ../banco/conexao.py")
 
 id = input("Digite o ID para atualizar: ")
 nome = input("Digite o nome para atualizar: ")
@@ -16,4 +18,4 @@ def atualizar(conexao, sql):
     except conexao.Error:
         print(conexao.Error)
 
-atualizar(conexao.con, sql)
+atualizar(os.con, sql)
