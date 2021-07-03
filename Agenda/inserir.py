@@ -1,5 +1,3 @@
-import conexao
-
 def inserir(conexao, sql):
     try:
         c = conexao.cursor()
@@ -8,12 +6,3 @@ def inserir(conexao, sql):
         print("Registro inserido!")
     except conexao.Error:
         print(conexao.Error)
-
-nome = input("Digite o nome: ")
-telefone = input("Digite o telefone: ")
-email = input("Digite o email: ")
-
-sql = """INSERT INTO tb_contatos (T_NOMECONTATO, T_TELEFONECONTATO, T_EMAILCONTATO)
-        VALUES ('"""+nome+"""','"""+telefone+"""','"""+email+"""')"""
-
-inserir(conexao.con, sql)
