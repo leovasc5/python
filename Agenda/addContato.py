@@ -44,5 +44,3 @@ tb_desc = Text(app)
 tb_desc.place(x=10, y=185, width=185, height=60)
 
 btn = Button(app, text="Salvar", command=saveDados).place(x=10, y=255, width=60, height=20)
-
-app.mainloop()

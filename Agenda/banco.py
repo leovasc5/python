@@ -22,11 +22,11 @@ def dql(query): #select
     return res
 
 def dml(query): #insert, update, delete
-    
+    try:
         con = ConexaoBanco()
         c = con.cursor()
         c.execute(query)
         con.commit()
         con.close()
-    
-        #print(Error)
+    except Error:
+        print(Error)
