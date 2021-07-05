@@ -1,8 +1,7 @@
 from tkinter import *
 import os
 
-def semComando():
-    print("Teste")
+pastaApp = os.path.dirname(__file__)
 
 app = Tk()
 app.title("Agenda")
@@ -10,9 +9,15 @@ app.geometry("500x350")
 cfg = ["#f4f4f4", "#000", "#000fff", "#008000"]
 app.configure(background=cfg[0])
 
+def semComando():
+    print("Teste")
+
+def addContato():
+    exec(open(pastaApp+"\\addContato.py").read())
+
 barraDeMenus = Menu(app)
 menuContatos = Menu(barraDeMenus, tearoff=0)
-menuContatos.add_command(label="Adicionar", command=semComando)
+menuContatos.add_command(label="Adicionar", command=addContato)
 menuContatos.add_command(label="Pesquisar", command=semComando)
 menuContatos.add_command(label="Deletar", command=semComando)
 menuContatos.add_command(label="Lista", command=semComando)

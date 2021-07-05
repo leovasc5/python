@@ -22,7 +22,7 @@ def saveDados():
 
 
 app = Tk()
-app.title("Aula 59")
+app.title("Adicionar Contato")
 app.geometry("500x350")
 cfg = ["#f4f4f4", "#000", "#000fff", "#008000"]
 app.configure(background=cfg[0])
