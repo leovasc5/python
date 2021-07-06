@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 
 app = Tk()
-app.title("Aula 76")
+app.title("Aula 77")
 app.geometry("300x300")
 
 nb = ttk.Notebook(app)
