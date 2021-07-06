@@ -1,7 +1,7 @@
 from tkinter import *
 
 app = Tk()
-app.title("Aula 70")
+app.title("Aula 71")
 app.geometry("500x475")
 
 def showSenha():
