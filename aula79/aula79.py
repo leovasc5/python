@@ -11,6 +11,7 @@ def loadbar(m):
         while i < 1000000:
             i = i + 1
         varBarra.set(cont)
+        lbl.configure(text="Progresso: " + str(cont) +"%")
         app.update()
 
 app = Tk()
@@ -25,5 +26,8 @@ pb.place(x=0, y=0, width=300)
 
 btn = Button(app, text="Iniciar barra", command=lambda:loadbar(10000))
 btn.place(x=10, y=40)
+
+lbl = Label(app, text="Progresso: " + str(0) +"%")
+lbl.place(x=10, y=70)
 
 app.mainloop()
