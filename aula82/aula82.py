@@ -48,7 +48,6 @@ tv.heading("Id", text="ID")
 tv.heading("Nome", text="NOME")
 tv.heading("Fone", text="FONE")
 
-#tv.insert("", "end",values=(a, b, c))
 tv.grid(column=0, row=4, columnspan=3, padx=5, pady=5)
 
 btn_inserir = Button(app, text="Inserir", command=inserir)
