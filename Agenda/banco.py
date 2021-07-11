@@ -3,7 +3,7 @@ from sqlite3 import Error
 import os
 
 pastaApp = os.path.dirname(__file__)
-nomeBanco = pastaApp + "\\banco\\agenda61.db"
+nomeBanco = pastaApp + "\\banco\\bd-agenda.db"
 
 def ConexaoBanco():
     con = None

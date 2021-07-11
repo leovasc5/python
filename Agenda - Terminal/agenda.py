@@ -12,7 +12,7 @@ def menu():
 opc = 0
 while opc != 5:
     menu()
-    opc = int(input("Escolha a opção: "))
+    opc = int(input("Escolha a opção: ")) 
     
     if opc == 1:
         os.system("cls")
