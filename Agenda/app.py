@@ -4,6 +4,9 @@ from sqlite3 import *
 from sqlite3 import Error
 import consultar
 import inserir
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
+import os
 
 
 app = Tk()
@@ -58,6 +61,20 @@ def call2(query):
     for (a, b, c) in dados:
         tv.insert("", "end",values=(a, b, c))
 
+def convertPDF():
+    dados = consultar.todos()
+    
+    try:
+        cnv = canvas.Canvas(os.path.dirname(__file__)+"\\contatos.pdf", pagesize=A4)
+        cnv.setTitle("Lista de Contatos")
+        cnv.drawImage(os.path.dirname(__file__)+"\\python.png", convert(15), convert(110), mask="auto")
+        cnv.drawString(convert(80), convert(90), "Leonardo Vasconcelos")
+        cnv.grid(["a", "b", "c"],["1", "2", "3"], convert(80), convert(40))
+        cnv.save()
+        print("PDF Criado")
+    except:
+        print("Erro")
+
 frameInserir = LabelFrame(app, text="Inserir Novos Contatos")
 frameInserir.pack(fill="both", expand="yes", padx=10, pady=10)
 
@@ -84,5 +101,7 @@ btn2 = Button(framePesquisar, text="Pesquisar", padx=10, command=lambda:call2(st
 btn2.pack(side="left", padx=10)
 btn3 = Button(framePesquisar, text="Mostrar Todos", padx=10, command=iniciar_tabela)
 btn3.pack(side="left", padx=10)
+btn4 = Button(framePesquisar, text="Criar PDF da lista", padx=10, command=convertPDF)
+btn4.pack(side="left", padx=10)
 
 app.mainloop()
