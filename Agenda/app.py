@@ -2,16 +2,21 @@ from tkinter import *
 from tkinter import ttk
 from sqlite3 import *
 from sqlite3 import Error
+
+from reportlab.lib import pagesizes
 import consultar
 import inserir
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 import os
 
 
 app = Tk()
 app.title("Agenda")
-app.geometry("500x455")
+app.geometry("600x455")
 cfg = ["#f4f4f4", "#000", "#000fff", "#008000"]
 app.configure(background=cfg[0])
 
@@ -63,15 +68,15 @@ def call2(query):
 
 def convertPDF():
     dados = consultar.todos()
+    dados = [("ID", "NOME", "TELEFONE")] + dados
     
     try:
-        cnv = canvas.Canvas(os.path.dirname(__file__)+"\\contatos.pdf", pagesize=A4)
-        cnv.setTitle("Lista de Contatos")
-        cnv.drawImage(os.path.dirname(__file__)+"\\python.png", convert(15), convert(110), mask="auto")
-        cnv.drawString(convert(80), convert(90), "Leonardo Vasconcelos")
-        cnv.grid(["a", "b", "c"],["1", "2", "3"], convert(80), convert(40))
-        cnv.save()
-        print("PDF Criado")
+        doc = SimpleDocTemplate(os.path.dirname(__file__)+"\\contatos.pdf", pagesize=A4)
+        elements =[]
+        t = Table(dados)
+        doc.title = "Contatos"
+        elements.append(t)
+        doc.build(elements)
     except:
         print("Erro")
 
