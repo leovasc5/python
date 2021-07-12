@@ -13,11 +13,11 @@ def todos():
 
 def pesquisar(query):
     if query != "":
-        #try:
+        try:
             query = "SELECT * FROM tb_contatos WHERE T_NOMECONTATO LIKE '%"+query+"%'"
             res = banco.dql(query)
             return res
-        #except:
+        except:
             print("Erro ao consultar os dados... Contate o programador")
     elif query == "":
         messagebox.showerror(title="Erro", message="O campo pesquisa não está preenchido")
