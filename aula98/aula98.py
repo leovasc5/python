@@ -7,3 +7,16 @@ dados.columns = ['liga','temporada','posicao','time','partidas','vitorias','empa
 
 print(dados[["posicao", "time", "pontos"]][0:20]) 
 print(dados["time"][0])
+dados["teste"] = "Valor Teste"
+print(dados.head())
+
+dados["aprov."] = (dados["pontos"] * 100) /114
+print(dados.head())
+
+del dados["aprov."] #APAGA A COLUNA
+print(dados.head())
+
+dados["aprov."] = (dados["pontos"] * 100) /114
+aprov = dados.pop("aprov.") #CORTA PARA UM NOVO LUGAR
+print(dados.head())
+print(aprov)
