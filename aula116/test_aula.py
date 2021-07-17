@@ -12,3 +12,5 @@ def teste_soma_1_como_string():
 def test_soma_1_palavra():
     with pytest.raises(ValueError):
         assert soma_1("fabio") == 0
+
+        
