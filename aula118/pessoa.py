@@ -14,10 +14,5 @@ class Pessoa:
     def setVelocidade(self, velocidade):
         self.velocidade = velocidade
 
-    @classmethod
-    def andar(self, metros):
-       self.corridos = self.corridos + metros
-
-    def showCorridos(self):
-        return self.corridos
+   
     
